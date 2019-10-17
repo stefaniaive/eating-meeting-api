@@ -1,6 +1,6 @@
 from flask_restful import Resource
 from flask import request
-from .schema import meeting_schema, meeting_input_schema
+from .schema import meeting_schema
 from .service import meeting_service
 import json
 

@@ -1,6 +1,5 @@
 from .dao import meeting_dao
-from .model import Meeting
-from app.guest.model import Guest
+from app.aws.email_ses import emailing
 
 
 class MeetingService(object):
@@ -11,6 +10,10 @@ class MeetingService(object):
         # TODO check future date
 
         meeting_dao.create(meeting)
+        for g in meeting.guests:
+            # TODO send emails all together
+            email = emailing.build_email(g.email, g.first_name, g.last_name, meeting.date, meeting.restaurant_id)
+            emailing.send_email(g.email, email)
 
         return meeting
 
