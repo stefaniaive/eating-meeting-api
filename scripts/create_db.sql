@@ -23,7 +23,7 @@ CREATE TABLE guest(
 
 CREATE TABLE meeting(
    id serial PRIMARY KEY,
-   restaurant_id INTEGER NOT NULL,
+   restaurant_id VARCHAR(30) NOT NULL,
    date TIMESTAMP NOT NULL
 );
 

@@ -1,5 +1,6 @@
 from .restaurant.resource import RestaurantCollectionResource, RestaurantEntityResource
 from .category.resource import CategoryCollectionResource
+from .meeting.resource import MeetingCollectionResource
 from flask import Blueprint
 from flask_restful import Api
 from flask import Flask
@@ -14,12 +15,14 @@ api.add_resource(RestaurantCollectionResource, '/restaurants')
 api.add_resource(RestaurantEntityResource, '/restaurants/<id>')
 
 api.add_resource(CategoryCollectionResource, '/categories')
+api.add_resource(MeetingCollectionResource, '/meetings')
 
 app = Flask(__name__)
 app.register_blueprint(api_bp, url_prefix='/' + APP_NAME)
 app.config.from_object('config')
 
-DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user=POSTGRES_USER, pw=POSTGRES_PASSWORD, url=POSTGRES_HOST, db=POSTGRES_DBNAME)
+DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user=POSTGRES_USER, pw=POSTGRES_PASSWORD,
+                                                               url=POSTGRES_HOST, db=POSTGRES_DBNAME)
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)

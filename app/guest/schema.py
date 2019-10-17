@@ -9,7 +9,7 @@ class GuestSchema(Schema):
     email = fields.String()
 
     @post_load()
-    def make_object(self, data, **kwargs):
+    def make_object(self, data):
         return model.Guest(**data)
 
 
