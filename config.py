@@ -6,7 +6,7 @@ ZOMATO_API_PREFIX="/api/v2.1"
 ZOMATO_URL = ZOMATO_BASE_URL + ZOMATO_API_PREFIX
 ZOMATO_AUTHENTICATION_HEADER="user-key"
 
-POSTGRES_USER = "eating_meeting"
-POSTGRES_PASSWORD = "eatingmeetingdb"
-POSTGRES_HOST = "localhost:5432"
-POSTGRES_DBNAME = "eating_meeting"
+POSTGRES_USER = "xebqyamybgxzto"
+POSTGRES_PASSWORD = "9c6be2967e8e4bf9a5c8d94608fd8e6d0ef1a207852a0cdda7fa78b76994ab9a"
+POSTGRES_HOST = "ec2-107-20-168-237.compute-1.amazonaws.com:5432"
+POSTGRES_DBNAME = "dftj6vgdp2elrf"
