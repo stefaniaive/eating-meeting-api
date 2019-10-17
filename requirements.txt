@@ -3,3 +3,5 @@ flask-marshmallow==0.8.0
 Flask-RESTful==0.3.6
 requests
 marshmallow==2.14.0
+psycopg2==2.7.5
+flask-sqlalchemy==2.4.1

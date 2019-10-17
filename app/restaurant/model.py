@@ -1,4 +1,3 @@
-
 """
 {
   "id": "16774318",
@@ -18,7 +17,9 @@
   "currency": "$"
 """
 
+
 class RestaurantLocation(object):
+
     address = None
     locality = None
     city= None
@@ -34,7 +35,9 @@ class RestaurantLocation(object):
         self.longitude = kwargs.get("longitude", None)
         self.zipcode = kwargs.get("zipcode", None)
 
+
 class Restaurant(object):
+
     id = None
     name = None
     location = None
@@ -52,10 +55,26 @@ class Restaurant(object):
         self.currency = kwargs.get("currency",None)
         self.menu_url = kwargs.get("menu_url",None)
 
+
 class RestaurantFilter(object):
+
     city_id = None
     category_id = None
 
     def __init__(self, **kwargs):
         self.city_id = kwargs.get("city_id",None)
         self.category_id = kwargs.get("category_id",None)
+
+
+class SearchRestaurantResponse(object):
+
+    results_found = None
+    results_start = None
+    results_shown = None
+    restaurants = None
+
+    def __init__(self, **kwargs):
+        self.results_found = kwargs.get("results_found", 0)
+        self.results_start = kwargs.get("results_start", 0)
+        self.results_shown = kwargs.get("results_shown", 0)
+        self.restaurants = kwargs.get("restaurants", [])

@@ -1,4 +1,4 @@
-from marshmallow import Schema, fields, post_load, ValidationError
+from marshmallow import Schema, fields, post_load
 from . import model
 
 
@@ -28,15 +28,29 @@ class RestaurantSchema(Schema):
     def make_object(self, data, **kwargs):
         return model.Restaurant(**data)
 
+class RestaurantResponseSchema(Schema):
+    restaurant = fields.Nested(RestaurantSchema)
 
 class RestaurantFilterSchema(Schema):
-    cityId = fields.String(attribute="city_id")
-    categoryId = fields.String(attribute="category_id")
+    city_id = fields.String()
+    category_id = fields.String()
 
     @post_load()
     def make_object(self, data, **kwargs):
         return model.RestaurantFilter(**data)
 
 
+class SearchRestaurantResponseSchema(Schema):
+    results_found = fields.Integer()
+    results_start = fields.Integer()
+    results_shown = fields.Integer()
+    restaurants = fields.Nested(RestaurantResponseSchema, many=True)
+
+    @post_load()
+    def make_object(self, data, **kwargs):
+        return model.SearchRestaurantResponse(**data)
+
+
 restaurant_filter_schema = RestaurantFilterSchema()
 restaurant_schema = RestaurantSchema()
+search_restaurant_response = SearchRestaurantResponseSchema()
