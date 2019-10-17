@@ -2,13 +2,15 @@ import boto3
 from botocore.exceptions import ClientError
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
+import os
 
 class EmailSES(object):
     AWS_REGION = "us-east-1"
-    client = boto3.client('ses', region_name=AWS_REGION)
-    SENDER = "Eating Meeting <stefaniaive@gmail.com>"
+    client = boto3.client('ses', region_name=AWS_REGION,
+                          aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+                            aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
 
+    SENDER = "Eating Meeting <stefaniaive@gmail.com>"
     def build_email(self, email_from, first_name, last_name, date, restaurant_id):
         # This address must be verified with Amazon SES. So I will use mine. But here should be something like invitation@eating-meeting.com
 
