@@ -50,3 +50,9 @@ Nodejs: https://github.com/stefaniaive/eating-meeting-nodejs-client
 - Amazon SES
 
 > https://aws.amazon.com/es/ses/
+
+## **Tools**
+
+- Python 3
+- Flask
+- Postgres SQL
