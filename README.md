@@ -1,25 +1,24 @@
 # **eating-meeting-api**
 
-Esta API es un prototipo para una aplicacion que permite buscar un restaurant deseado para una reunion determinada. Esta puede ser una reunion de trabajo, de amigos, romantica, o lo que se desee.
-La misma permite una vez seleccionado el restaurant donde se desea llevar a cabo , crear la reunion para una fecha determinada asociada a los invitados que se quiera.
-En lo implementado una vez creada la reunion se enviara un email a cada uno de los invitados informandole de la misma.
+This API is a prototype for an application that allows to search for an specific restaurant to creaate a meeting. This could be a meeting of bussiness, friends, or anything else.
+This application allows to search and select a restauarant at first, and then the guests who will receive the invitations by email. 
 
 Nice to have:
-- Posibilidad de crear un evento en el calendar a traves de la API de google que se adjunte al email y permita a los invitados marcar si asistiran o no a la misma, pudiendo en caso positivo agrgarla a su calendario.
-- Crear alertas periodicas recordando la reunion (Email o push notifications)
+- Add functionality to create a calendar event with google API, to attach it to the email, allowing guest to accept or not the invitation and adding it to their personal calendars.
+- Create reminders for the meeting ( by email or push notifications)
 
-
-Servicios publicados: 
+Published services: 
 
 GET https://eating-meeting-api.herokuapp.com/eating-meeting-api/categories 
 
-> Devuelve las categorias posibles para los restaurants
+> Return the restaurant categories
 
 GET https://eating-meeting-api.herokuapp.com/eating-meeting-api/restaurants
-> Permite obtener los restaurants disponibles
+> Return the restaurants by filters
 
-Query Params permitidos:
+Query Params Required:
 city_id, category_id
+
 
 POST https://eating-meeting-api.herokuapp.com/eating-meeting-api/meetings
 
@@ -36,14 +35,13 @@ POST https://eating-meeting-api.herokuapp.com/eating-meeting-api/meetings
 	}]
 }
 
-> Permite crear una reunion en un restaurant determinado, en una fecha para los invitados deseados
+> Create a new meeting for a restaurant, date and guests
 
-
-## **Clientes**
+## **Clients**
 
 Nodejs: https://github.com/stefaniaive/eating-meeting-nodejs-client
 
-## **Dependencias**
+## **Dependencies**
 
 - Zomato API 
 
