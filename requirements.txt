@@ -1,5 +1,5 @@
 sqlalchemy
-Flask==0.12.2
+Flask==1.0
 flask-marshmallow==0.8.0
 Flask-RESTful==0.3.6
 requests
